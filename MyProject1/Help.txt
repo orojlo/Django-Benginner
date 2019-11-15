@@ -1,0 +1,66 @@
+Step 1 :
+active ENV :
+conda activate MyDjangoEnv
+Step 2 :
+Create Project :
+django-admin startproject Project_Name
+Step 3 :
+Create App : 
+python manage.py startapp App_Name
+(And Add In INSTALLED_APPS in setting.py for example 'App_Name')
+Step 4 :
+Run Server :
+python manage.py runserver
+==========================
+Step 5 : 
+Create Function :
+IN App_Name Directory go to views.py and to this structuins :
+First Add HttpResponse :
+from django.http import HttpResponse
+And Create A Function : 
+def index(request):
+    my_dict = {'insert_me':"Now I am coming from App_Name/index.html!"}
+    return render(request,'App_Name/index.html',context=my_dict)
+* my_dict = a dict has a parameter with values
+* render = render index.html file in App_Name Directory and find context 
+Step 6 :
+Create Directories :
+In Project Folder Create A Folder and set name is templates 
+In templates folder create a folder and set name App_Name
+Create Index File :
+Create A Html File And set name is index.html and in body tag put {{ insert_me }} (Django Template Language)
+Step 7 :
+Set Template Dir In Setting File :
+Get setting.py and Under BASE_DIR and blow Code :
+TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
+*TEMPLATES_DIR = Var Name for templates
+*os.path.join =  join method
+*BASE_DIR = project dir var (For Example C:/django/Project_Name)
+after add TEMPLATES_DIR find TEMPLATES section in setting.py and add TEMPLATES_DIR in DIRS Strings ('DIRS': [TEMPLATES_DIR,],)
+==============
+Step 8 :
+for url mapping get Project_Name folder and open urls.py :
+first add those Lib :
+from django.urls import path, re_path
+from MyApp1 import views
+from django.conf.urls import include
+after add lib get urlpatterns section and add :
+re_path(r'^$',views.index,name='index'), (For Index Project)
+re_path(r'^MyApp1/',include('MyApp1.urls')), (For MyApp1 Link)
+after add parameters get MyApp1 folder and create a new file and set name urls.py
+and first add Lib:
+from django.conf.urls import url
+from MyApp1 import views
+after add Lib Create a urlpatterns and set url(r'^$',views.index,name='index'),
+*views = views file
+*index = function name
+*name = function
+====================
+static dir
+====================
+In setting.py add static var
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+* Create List :
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
