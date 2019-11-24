@@ -21,6 +21,5 @@ from MyApp1 import views
 urlpatterns = [
     re_path(r'^$',views.index,name='index'),
     re_path(r'^MyApp1/',include('MyApp1.urls')),
-    re_path(r'^MyApp2/',include('MyApp1.urls')),
     path('admin/', admin.site.urls),
 ]
