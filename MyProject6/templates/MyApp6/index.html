@@ -2,5 +2,7 @@
 {% extends "MyApp6/base.html" %}
   {% block body_block %}
     <h1>Welcome To Index</h1>
-    <h1>This Is Index.html Page Showing</h1>
+    <!--h1>This Is Index.html Page Showing</h1-->
+    <h1>{{ text|cut:'AmirHosein' }}</h1>
+    <h1>{{ number|add:"99" }}</h1>
   {% endblock %}
