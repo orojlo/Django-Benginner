@@ -15,8 +15,21 @@
     <![endif]-->
   </head>
   <body>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li><a class="nvabar-brand" href="{% url 'index' %}">BRAND</a></li>
+            <li><a class="navbar-link" href="{% url 'admin:index' %}">ADMIN</a></li>
+            <li><a class="navbar-link" href="{% url 'MyApp6:other' %}">OTHER</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
 
-
+        {% block body_block %}
+        <!-- Anything Outside of this will be inherited if you extend! -->
+        {% endblock %}
+      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
