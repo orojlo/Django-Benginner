@@ -19,5 +19,5 @@ from MyApp8 import views
 from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',views.CBView.as_view()),
+    url(r'^$',views.IndexView.as_view()),
 ]
