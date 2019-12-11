@@ -10,6 +10,7 @@ class IndexView(TemplateView):
 class SchoolListView(ListView):
     context_object_name = 'schools'
     model = models.School
+    template_name = 'MyApp/school_list.html'
     # school_list
 
 class SchoolDetailView(DetailView):
